@@ -12,7 +12,7 @@ void daxpy (double a, const std::vector<double> &x, std::vector<double> &y) {
 }
 
 int main() {
-    const int ntrial = 3;
+    const int ntrial = 100;
     int n_min = 2;
     int n_max = 1024;
 
