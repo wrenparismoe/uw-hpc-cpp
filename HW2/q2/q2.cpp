@@ -11,6 +11,24 @@ void daxpy (double a, const std::vector<double> &x, std::vector<double> &y) {
     }
 }
 
+void daxpy_unroll(double a, const std::vector<double> &x, std::vector<double> &y, int blocksize) {
+    int n = x.size();
+    int unroll_factor = 4;
+    int i;
+
+    for (i = 0; i < n - (n % (blocksize * unroll_factor)); i += blocksize * unroll_factor) {
+        for (int j = 0; j < blocksize; j++) {
+            for (int k = 0; k < unroll_factor; k++) {
+                y[i + j + k * blocksize] += a * x[i + j + k * blocksize];
+            }
+        }
+    }
+
+    for (; i < n; i++) {
+        y[i] += a * x[i];
+    }
+}
+
 int main() {
     const int ntrial = 1000;
     int n_min = 2;

@@ -1,8 +1,8 @@
-This is LuaHBTeX, Version 1.16.0 (TeX Live 2023/Arch Linux)  (format=lualatex 2023.4.3)  17 APR 2023 23:14
+This is LuaHBTeX, Version 1.16.0 (TeX Live 2023/Arch Linux)  (format=lualatex 2023.4.3)  18 APR 2023 02:06
  system commands enabled.
  file:line:error style messages enabled.
-**/home/wpm/Documents/UW/Spring_2023/AMATH_583/HW/HW1/latex/hw1_amath583
-(/home/wpm/Documents/UW/Spring_2023/AMATH_583/HW/HW1/latex/hw1_amath583.tex
+**/home/wpm/Documents/UW/Spring_2023/AMATH_583/HW/HW2/latex/hw2_amath583
+(/home/wpm/Documents/UW/Spring_2023/AMATH_583/HW/HW2/latex/hw2_amath583.tex
 LaTeX2e <2022-11-01> patch level 1
 Lua module: luaotfload 2022-10-03 3.23 Lua based OpenType font support
 Lua module: lualibs 2022-10-04 2.75 ConTeXt Lua standard libraries.
@@ -353,6 +353,47 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \c@mdf@env@ii=\count283
 \c@mdf@zref@counter=\count284
 Package zref Info: New property: mdf@pagevalue on input line 895.
+) (/usr/share/texmf-dist/tex/latex/verbatimbox/verbatimbox.sty
+Package: verbatimbox 2014/03/12 v3.13 Routines for placing verbatim text into boxes, useful in places where the verbatim environment is inaccessible. Secondarily, for adding vertical buffer around an object.
+ (/usr/share/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2022-07-02 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks32
+\verbatim@line=\toks33
+\verbatim@in@stream=\read2
+) (/usr/share/texmf-dist/tex/latex/readarray/readarray.sty
+Package: readarray 2021/09/17\ 3.1\ Routines for inputting 2D and 3D array data and recalling it on an element-by-element basis.
+ (/usr/share/texmf-dist/tex/latex/forloop/forloop.sty
+Package: forloop 2006/09/18 v3.0 For Loops for LaTeX
+ (/usr/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)) (/usr/share/texmf-dist/tex/generic/listofitems/listofitems.sty (/usr/share/texmf-dist/tex/generic/listofitems/listofitems.tex
+\loi_cnt_foreach_nest=\count285
+\loi_nestcnt=\count286
+)
+Package: listofitems 2019/08/21 v1.63 Grab items in lists using user-specified sep char (CT)
+)
+\c@@index=\count287
+\c@@plane=\count288
+\c@@row=\count289
+\c@@col=\count290
+\c@use@args=\count291
+\c@@record=\count292
+\c@index@count=\count293
+\Arg@toks=\toks34
+\@arrayident@toks=\toks35
+\rdar@file=\read3
+\readarrayendlinechar=\count294
+
+readarray: bounds checking OFF
+)
+\savedverbbox=\box60
+\c@VerbboxLineNo=\count295
+\boxtopsep=\dimen170
+\boxbottomsep=\dimen171
+\ps@tempdima=\dimen172
+\ps@tempboxa=\box61
+\boxtop@sep=\skip127
+\boxbottom@sep=\skip128
 ) (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
  (/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
@@ -364,49 +405,44 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: luatex.def on input line 107.
 )
-\Gin@req@height=\dimen170
-\Gin@req@width=\dimen171
-)
+\Gin@req@height=\dimen173
+\Gin@req@width=\dimen174
+) (/home/wpm/Documents/UW/Spring_2023/AMATH_583/HW/HW2/latex/hw2_amath583.aux)
+\openout1 = hw2_amath583.aux
 
-LaTeX Warning: Unused global option(s):
-    [letter].
-
-(/home/wpm/Documents/UW/Spring_2023/AMATH_583/HW/HW1/latex/hw1_amath583.aux)
-\openout1 = hw1_amath583.aux
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 18.
  (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count285
-\scratchdimen=\dimen172
-\scratchbox=\box60
-\nofMPsegments=\count286
-\nofMParguments=\count287
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count288
-\MPscratchDim=\dimen173
-\MPnumerator=\count289
-\makeMPintoPDFobject=\count290
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count296
+\scratchdimen=\dimen175
+\scratchbox=\box62
+\nofMPsegments=\count297
+\nofMParguments=\count298
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count299
+\MPscratchDim=\dimen176
+\MPnumerator=\count300
+\makeMPintoPDFobject=\count301
+\everyMPtoPDFconversion=\toks37
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -447,103 +483,49 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 18.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 18.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 19.
  (/usr/share/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 22.
+(mdframed)              on input line 23.
+<img/q1-plot.png, id=1, 716.9184pt x 344.0052pt>
+File: img/q1-plot.png Graphic file (type png)
+<use img/q1-plot.png>
+Package luatex.def Info: img/q1-plot.png  used on input line 38.
+(luatex.def)             Requested size: 465.99144pt x 223.60072pt.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 37.
+(mdframed)              on input line 45.
+ [1
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--45
-
- []
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Missing character: There is no − (U+2212) in font cmr12!
-Missing character: There is no − (U+2212) in font cmr12!
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 76.
-[2]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 90.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 130.
- [3]
-warning  (file ./img//pos_norm.jpg) (readjpg): Exif resolution 72dpi x 72dpi differs from the input resolution 300dpi x 300dpi
-<./img//pos_norm.jpg, id=27, 2381.89874pt x 1812.7725pt>
-File: ./img//pos_norm.jpg Graphic file (type jpg)
-<use ./img//pos_norm.jpg>
-Package luatex.def Info: ./img//pos_norm.jpg  used on input line 177.
-(luatex.def)             Requested size: 428.72328pt x 326.28497pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./img//numberline_norm.png, id=28, 611.61833pt x 53.35823pt>
-File: ./img//numberline_norm.png Graphic file (type png)
-<use ./img//numberline_norm.png>
-Package luatex.def Info: ./img//numberline_norm.png  used on input line 186.
-(luatex.def)             Requested size: 458.71262pt x 40.01857pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<./img//denorm.jpg, id=29, 3111.625pt x 699.61375pt>
-File: ./img//denorm.jpg Graphic file (type jpg)
-<use ./img//denorm.jpg>
-Package luatex.def Info: ./img//denorm.jpg  used on input line 212.
-(luatex.def)             Requested size: 466.72362pt x 104.93753pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./img//numberline_denorm.png, id=30, 611.61833pt x 53.35823pt>
-File: ./img//numberline_denorm.png Graphic file (type png)
-<use ./img//numberline_denorm.png>
-Package luatex.def Info: ./img//numberline_denorm.png  used on input line 218.
-(luatex.def)             Requested size: 458.71262pt x 40.01857pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[4] [5<./img//pos_norm.jpg
-warning  (readjpg): Exif resolution 72dpi x 72dpi differs from the input resolution 300dpi x 300dpi
-><./img//numberline_norm.png><./img//denorm.jpg>] [6<./img//numberline_denorm.png>] (/home/wpm/Documents/UW/Spring_2023/AMATH_583/HW/HW1/latex/hw1_amath583.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}<./img/q1-plot.png>]
+Package mdframed Info: Not enough space on this page on input line 59.
+ [2] (/home/wpm/Documents/UW/Spring_2023/AMATH_583/HW/HW2/latex/hw2_amath583.aux))
 
 Here is how much of LuaTeX's memory you used:
- 6693 strings out of 478285
- 156422,1977958 words of node,token memory allocated
- 721 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 8 attribute, 96 glue_spec, 8 attribute_list, 1 write nodes
-   avail lists: 1:4,2:856,3:198,4:78,5:365,6:33,7:5784,8:67,9:961,10:8,11:331
- 26508 multiletter control sequences out of 65536+600000
- 69 fonts using 4603487 bytes
- 73i,12n,73p,580b,283s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on hw1_amath583.pdf (6 pages, 1456940 bytes).
+ 7182 strings out of 478285
+ 125086,1977958 words of node,token memory allocated
+ 704 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 6 attribute, 96 glue_spec, 6 attribute_list, 1 write nodes
+   avail lists: 1:3,2:389,3:191,4:59,5:195,6:24,7:3301,8:11,9:203,10:5,11:157
+ 26956 multiletter control sequences out of 65536+600000
+ 66 fonts using 4406047 bytes
+ 73i,7n,73p,580b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-italic.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/share/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on hw2_amath583.pdf (2 pages, 106851 bytes).
 
-PDF statistics: 110 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+PDF statistics: 64 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
