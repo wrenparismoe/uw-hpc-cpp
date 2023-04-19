@@ -1,3 +1,9 @@
+"""
+The following program implements a function for $y=a*x+y$ where $x,y \in \mathbb{R^n}, \alpha \in \mathbb{R}$ and measures the performance for $n = 2$ to $n = 1024$. Let each $n$ be measured $ntrial$ times so that we can plot the performance for each case versus $n$. Here, $ntrial=1000$ was used to avoid dividing by zero. Using the below code as a starting point, now implement a function that computes $y=a*A*x + b*y$ where $A \in \mathbb{R^{m \times n}}, x \in \mathbb{R^n}, y \in \mathbb{R^m}$ and $a,b \in \mathbb{R}$. Again, measure the performance for $n = 2$ to $n = 1024$. Use the following function structure:
+`void dgemv (double a, const std::vector<std::vector<double>> &A, const std::vector<double> &x, double b, std::vector <double> &y)`
+"""
+
+```
 #include <chrono>
 #include <iostream>
 #include <vector>
@@ -76,3 +82,4 @@ int main() {
 
     return 0;
 }
+```

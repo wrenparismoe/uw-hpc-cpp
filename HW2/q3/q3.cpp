@@ -17,6 +17,27 @@ void daxpy (double a, const std::vector<double> &x, std::vector<double> &y) {
     }
 }
 
+// y = a * A * x + b * y
+void dgemv (double a, const std::vector<std::vector<double>> &A, const std::vector<double> &x, double b, std::vector <double> &y) {
+    // Handle when A, x, or y are incorrect dimensions
+    An = A.size();
+    Am = A[0].size();
+    xn = x.size();
+    ym = y.size();
+    if (An != xn || Am != ym) {
+        std::cout << "Error: A, x, or y are incorrect dimensions" << std::endl;
+        return;
+    }
+
+    for (int i = 0; i < Am; i++) {
+        for (int j = 0; j < An; j++) {
+            y[i] += a * A[i][j] * x[j];
+        }
+        y[i] += b * y[i];
+    }
+
+}
+
 int main() {
     const int ntrial = 1000;
     int n_min = 2;

@@ -6,6 +6,12 @@
 
 
 void daxpy (double a, const std::vector<double> &x, std::vector<double> &y) {
+    // Handling for when x and y are different dimensions
+    if (x.size() != y.size()) {
+        std::cout << "Error: x and y are different dimensions" << std::endl;
+        return;
+    }
+
     for (int i = 0; i < x.size(); i++) {
         y[i] += a * x[i];
     }
@@ -17,10 +23,18 @@ void daxpy_unroll(double a, const std::vector<double> &x, std::vector<double> &y
     
     // Run daxpy if blocksize greater than n 
     if (blocksize > n) {
+        // print statement
+        std::cout << "Blocksize greater than n, running daxpy" << std::endl;
         daxpy(a, x, y);
         return;
     }
 
+    // Handling for when x and y are different dimensions
+    if (x.size() != y.size()) {
+        std::cout << "Error: x and y must be same dimensions" << std::endl;
+        return;
+    }
+    
     for (i = 0; i < n - (n % (blocksize * unroll_factor)); i += blocksize * unroll_factor) {
         for (int j = 0; j < blocksize; j++) {
             for (int k = 0; k < unroll_factor; k++) {
@@ -35,7 +49,7 @@ void daxpy_unroll(double a, const std::vector<double> &x, std::vector<double> &y
 }
 
 int main() {
-    const int ntrial = 1000;
+    const int ntrial = 10000;
     int n = 2048;
     std::vector<int> blocks = {1, 2, 4, 8, 16, 32, 64};
 
@@ -66,7 +80,7 @@ int main() {
         // Code segment to time
         for (int j=0; j < ntrial; j++) {
             // Run daxpy function
-            daxpy_unroll(a, x, y, 4);
+            daxpy_unroll(a, x, y, blocksize, 4);
         }
 
         // Stop timer
