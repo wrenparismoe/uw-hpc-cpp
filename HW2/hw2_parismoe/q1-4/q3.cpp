@@ -3,6 +3,7 @@
 #include <vector>
 #include <random>
 #include <fstream>
+#include "blas.hpp"
 
 void printMatrix (const std::vector<std::vector<double>> &A) {
     for (int i = 0; i < A.size(); i++)
@@ -15,30 +16,6 @@ void printMatrix (const std::vector<std::vector<double>> &A) {
     }
 }
 
-void dgemv (double a, const std::vector<std::vector<double>> &A, 
-            const std::vector<double> &x, double b, std::vector <double> &y) {
-    int m = A.size();
-    int n = A[0].size();
-    // Handle when A, x, or y are incorrect dimensions
-    if (n != x.size()) {
-        std::cout << "Error: A and x do not have same dimension n" << std::endl;
-        return;
-    }
-    if (m != y.size()) {
-        std::cout << "Error: A and y do not have same dimension m" << std::endl;
-        return;
-    }
-    for (int i = 0; i < m; i++) {
-        double sum = 0;
-        for (int j = 0; j < n; j++) {
-            y[i] += a * A[i][j] * x[j];
-            // sum += A[i][j] * x[j];
-        }
-        // y[i] = a * sum + b * y[i];
-        y[i] += b * y[i];
-    }
-}
-
 int main() {
     const int ntrial = 4;
     int n_min = 2;
@@ -46,7 +23,7 @@ int main() {
 
     long double micro_to_secondL = 1.e-6L;
 
-    std::ofstream performanceCSV("performance.csv");
+    std::ofstream performanceCSV("q3-performance.csv");
     performanceCSV << "n,elapsed_time,FLOPs" << std::endl;
 
     // n_min = n_max = 5;

@@ -2,24 +2,22 @@
 #include <iostream>
 #include <vector>
 #include <random>
-
-
-void daxpy (double a, const std::vector<double> &x, std::vector<double> &y) {
-    for (int i = 0; i < x.size(); i++) {
-        y[i] += a * x[i];
-    }
-}
+#include <fstream>
+#include "blas.hpp"
 
 int main() {
-    int ntrial = 3;
+    const int ntrial = 1024;
     int n_min = 2;
     int n_max = 1024;
 
-    long double micro_to_secondL = 1.e-6L;
+    long double nano_to_secondL = 1.e-9L;
+
+    std::ofstream performanceCSV("q1-performance.csv");
+    performanceCSV << "n,elapsed_time,FLOPs" << std::endl;
 
     for (int n=n_min; n <= n_max; n++) {
         // Calculate the number of flops
-        long double flop_count = static_cast<long double>(ntrial * (2 * n));
+        long double flop_count_per_trial = static_cast<long double>((2 * n));
 
         // Generate random x, y, a
         std::vector<double> x(n), y(n);
@@ -45,17 +43,25 @@ int main() {
         // Stop timer
         auto stop = std::chrono::high_resolution_clock::now();
         // Calculate the duration of the code segment
-        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+        auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(stop - start);
+        // Convert to long double
+        long double durationL = static_cast<long double>(duration.count());
 
         // Output the duration to the console
-        std::cout << "Duration for code segment (" << n << "): " << duration.count() << " microseconds" << std::endl;
+        std::cout << "Total duration of daxpy runs (n=" << n << "): " << durationL << " nanoseconds" << std::endl;
 
-        long double durationL = static_cast<long double>(duration.count());
-        long double flops = flop_count / (durationL * micro_to_secondL);
+        long double flops_per_trial = flop_count_per_trial / (durationL * nano_to_secondL);
+        long double flops = flops_per_trial * ntrial;
 
         // Output the flops value to the console
         std::cout << "daxpy performance (MFLOPs): " << flops / (1.e6L) << std::endl;
+
+        // Write output to CSV file
+        performanceCSV << n << "," << durationL << "," << flops << std::endl;
     }
+
+    // Close the CSV file
+    performanceCSV.close();
 
     return 0;
 }

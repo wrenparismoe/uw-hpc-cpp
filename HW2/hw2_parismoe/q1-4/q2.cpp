@@ -3,56 +3,7 @@
 #include <vector>
 #include <random>
 #include <fstream>
-
-
-void daxpy (double a, const std::vector<double> &x, std::vector<double> &y) {
-    // Handling for when x and y are different dimensions
-    if (x.size() != y.size()) {
-        std::cout << "Error: x and y are different dimensions" << std::endl;
-        return;
-    }
-
-    for (int i = 0; i < x.size(); i++) {
-        y[i] += a * x[i];
-    }
-}
-
-void daxpy_unroll(double a, const std::vector<double> &x, std::vector<double> &y, int blocksize, int unroll_factor=4) {
-    int n = x.size();
-    int i;
-    
-    // Run daxpy if blocksize greater than n 
-    if (blocksize > n) {
-        // print statement
-        std::cout << "Blocksize greater than n, running daxpy" << std::endl;
-        daxpy(a, x, y);
-        return;
-    }
-
-    // Handling for when x and y are different dimensions
-    if (x.size() != y.size()) {
-        std::cout << "Error: x and y must be same dimensions" << std::endl;
-        return;
-    }
-    
-    unroll_factor = 8;
-    for (i = 0; i < n - (n % (unroll_factor * blocksize)); i += unroll_factor * blocksize) {
-        for (int j = 0; j < blocksize; j++) {
-            y[i + j] += a * x[i + j];
-            y[i + j + blocksize] += a * x[i + j + blocksize];
-            y[i + j + 2 * blocksize] += a * x[i + j + 2 * blocksize];
-            y[i + j + 3 * blocksize] += a * x[i + j + 3 * blocksize];
-            y[i + j + 4 * blocksize] += a * x[i + j + 4 * blocksize];
-            y[i + j + 5 * blocksize] += a * x[i + j + 5 * blocksize];
-            y[i + j + 6 * blocksize] += a * x[i + j + 6 * blocksize];
-            y[i + j + 7 * blocksize] += a * x[i + j + 7 * blocksize];
-        }
-    }
-
-    for (; i < n; i++) {
-        y[i] += a * x[i];
-    }
-}
+#include "blas.hpp"
 
 int main() {
     const int ntrial = 1000;
@@ -76,7 +27,7 @@ int main() {
         y[i] = dist(gen);
     }
 
-    std::ofstream performanceCSV("performance.csv");
+    std::ofstream performanceCSV("q2-performance.csv");
     performanceCSV << "blocksize,elapsed_time,FLOPs" << std::endl;
 
     for (auto &blocksize : blocks) {

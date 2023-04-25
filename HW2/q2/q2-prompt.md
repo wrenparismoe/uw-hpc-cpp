@@ -1,9 +1,8 @@
 """
-The loop unrolling technique aims to optimize the performance of a program by reducing the overhead of the loop itself. The idea is to execute multiple iterations of the loop at once, thereby reducing the number of instructions executed by the processor.
+Level 1 BLASS Loop Unrolled. The loop unrolling technique aims to optimize the performance of a program by reducing the overhead of the loop itself. The idea is to execute multiple iterations of the loop at once, thereby reducing the number of instructions executed by the processor.
 
-The following program implements a function for $y=a*x+y$ where $x,y \in \mathbb{R^n}, \alpha \in \mathbb{R}$ and measures the performance for $n = 2$ to $n = 1024$. Let each $n$ be measured $ntrial$ times so that we can plot the performance for each case versus $n$. Here, $ntrial=1000$ was used to avoid dividing by zero. Now, rewrite the function below implemented with loop unrolling. Your function should unroll the loop at least to depth 4, and accept a block size parameter.
-Use this function structure: 
-`void daxpy_unroll (double a, const std::vector<double> &x, std::vector<double> &y, int blocksize){...}`
+Write a C++ function that computes $y=a*x+y$ where $x,y \in \mathbb{R^n}, \alpha \in \mathbb{R}$ and measures the performance for $n = 2048$. Measured the performance $ntrial=1000$ times so that we can plot the performance for each case versus $n$ without any inf values in the FLOP calculation. Your function should unroll the loop at least to depth 4, and accept a block size parameter. The correctness of your function will be tested against a test system with known result. Check for and flag incorrect cases. Your function will be called with: 
+`void daxpy_unroll(double a, const std::vector<double> &x, std::vector<double> &y, int blocksize);`
 """
 
 ```
