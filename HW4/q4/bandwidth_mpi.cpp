@@ -78,7 +78,6 @@ int main(int argc, char** argv) {
         csv_file << "message_size,my_bandwidth,bcast_bandwidth" << std::endl;
         index = 0;
         for (int i = 8; i <= 128*1024*1024; i*=2) {
-            int message_size = 8 * (1 << i);
             csv_file << message_size << "," << my_bandwidth[index] << "," << bcast_bandwidth[index] << std::endl;
             index += 1;
         }
