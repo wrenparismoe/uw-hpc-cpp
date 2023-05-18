@@ -2,6 +2,7 @@
 #include <cmath>
 #include <vector>
 #include <chrono>
+#include <ios>
 #include <fstream>
 
 #include <mpi.h>
@@ -11,41 +12,18 @@ double f(double x) {
     return std::log(x) - (1.0 / 8.0) * std::pow(x, 2);
 }
 
-// Numerical integration to calculate the length of the graph
-double calculateLength(double a, double b, int numPoints) {
-    double dx = (b - a) / numPoints;
-    double length = 0.0;
-
-    for (int i = 0; i < numPoints; ++i) {
-        double x = a + i * dx;
-        double fPrime = 1 / x - (1 / 4.0) * x;
-        double integrand = std::sqrt(1 + std::pow(fPrime, 2));
-        length += integrand * dx;
-    }
-
-    return length;
+double fprime(double x) {
+    return 1.0/x - (1.0 / 4.0) * x;
 }
 
-double parallel_reimann_sum(double a, double b, int n, int rank, int size) {
+double sequential_riemann_sum(double a, double b, int n) {
     double h = (b - a) / n;
     double sum = 0.0;
-    double partial_sum = 0.0;
-
-    // Calculate the range of indices for the current process
-    int start = (n / size) * rank;
-    int end = (rank == size - 1) ? n : (n / size) * (rank + 1);
-
-    // Compute the partial sum for the current process
-    for (int j = start; j < end; ++j) {
-        double x = a + j * h;
-        partial_sum += f(x);
+    for (int i = 0; i < n; ++i) {
+        double x = a + i * h;
+        sum += std::sqrt(1 + std::pow(fprime(x), 2));
     }
-    partial_sum *= h;
-
-    // Reduce the partial sums from all processes
-    MPI_Reduce(&partial_sum, &sum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
-
-    return sum;
+    return h * sum;
 }
 
 int main(int argc, char* argv[]) {
@@ -57,41 +35,31 @@ int main(int argc, char* argv[]) {
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     MPI_Get_processor_name(processor_name, &len);
 
+    auto start = std::chrono::steady_clock::now();
+
     const double a = 1.0;  // Lower bound of the interval
     const double b = 6.0;  // Upper bound of the interval
 
-    const int numPoints = 1e8;  // Number of points to use for numerical integration
+    const int n = 1e8;  // Number of points to use for numerical integration
 
-    double length = calculateLength(a, b, numPoints);
+    double local_a = a + rank * (b - a) / size;
+    double local_b = a + (rank + 1) * (b - a) / size;
+    int local_n = n / size;
+
+    double local_sum = sequential_riemann_sum(local_a, local_b, local_n);
+
+    double global_sum;
+    MPI_Reduce(&local_sum, &global_sum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
 
     if (rank == 0) {
-        std::cout << "Length of f(x) on the interval [" << a << ", " << b << "]: " << length << std::endl;
+        auto end = std::chrono::steady_clock::now();
+        auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
 
-        // Save results to a CSV file
-        std::ofstream outputFile("results.csv");
-        outputFile << "numProcesses,elapsed_time" << std::endl;
+        std::ofstream threads("threads.csv", std::ios_base::app | std::ios_base::out);
+        threads << size << "," << elapsed * 1e-9 << std::endl;
 
-        for (int numProcesses = 1; numProcesses <= size; ++numProcesses) {
-            auto start = std::chrono::steady_clock::now();
-
-            // Calculate length using multiple processes
-            double sum_parallel = parallel_reimann_sum(a, b, numPoints, rank, numProcesses);
-
-            auto end = std::chrono::steady_clock::now();
-            auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
-
-            std::cout << "Number of processes: " << numProcesses << ", Elapsed time: " << elapsed << " ms, Total Sum: " << sum_parallel << std::endl;
-
-            // Save process count and elapsed time to CSV file
-            outputFile << numProcesses << "," << elapsed << "\n";
-        }
-
-        outputFile.close();
-    } else {
-        // Calculate length using multiple processes
-        parallel_reimann_sum(a, b, numPoints, rank, size);
+        std::cout << "Result: " << global_sum << "(NThreads=" << size << ", time=" << elapsed << "ns)" << std::endl;
     }
-
     MPI_Finalize();
 
     return 0;
